@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 
 use App\Models\Food;
+
 class AdminController extends Controller
 {
     public function user()
@@ -31,17 +32,17 @@ class AdminController extends Controller
 
     public function upload(Request $request)
     {
-        dd($request);
+      
         
-        $data=new food;
+        $data = new food;
 
         $image=$request->image;
-        $imagename=time().'.'.$image->getClientOriginalExtension();
+        $imagename =time().'.'.$image->getClientOriginalExtension();
         $request->image->move('foodimage',$imagename);
         $data->image=$imagename;
         $data->title=$request->title;
-        $data->price=$request->title;
-        $data->description=$request->title;
+        $data->price=$request->price;
+        $data->description=$request->description;
         $data->save();
         return redirect()->back();
     }
