@@ -1,19 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+use App\Models\Food;
 
 use App\Models\User;
 
-use App\Models\Food;
+use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
     public function user()
     {
         $data=user::all();
-        
+
         return view("admin.users",compact("data"));
     }
 
@@ -26,26 +27,37 @@ class AdminController extends Controller
 
     public function foodmenu()
     {
-        
+
         return view("admin.foodmenu");
     }
 
     public function upload(Request $request)
     {
-      
-        
-        $data = new food;
+        $validatedData = $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'title' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'description' => 'required|string',
+        ]);
 
-        $image=$request->image;
-        $imagename =time().'.'.$image->getClientOriginalExtension();
-        $request->image->move('foodimage',$imagename);
-        $data->image=$imagename;
-        $data->title=$request->title;
-        $data->price=$request->price;
-        $data->description=$request->description;
-        $data->save();
-        return redirect()->back();
-    }
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+
+            $path = $image->storeAs('foodimage', $imageName, 'public');
+
+            $food = new Food;
+            $food->image = $path;
+            $food->title = $validatedData['title'];
+            $food->price = $validatedData['price'];
+            $food->description = $validatedData['description'];
+            $food->save();
+
+            return redirect()->back()->with('success', 'Food uploaded successfully.');
+        } else {
+            return redirect()->back()->with('error', 'No image uploaded.');
+        }
+}
 
 
 }
