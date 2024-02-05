@@ -33,7 +33,7 @@ class AdminController extends Controller
 
     public function upload(Request $request)
     {
-        $validatedData = $request->validate([
+        $validatedData =  $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'title' => 'required|string|max:255',
             'price' => 'required|numeric',
