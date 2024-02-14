@@ -15,6 +15,8 @@ class HomeController extends Controller
     public function index()
     {
         $data=food::all();
+        
+
         return view("home",compact("data"));
     }
 
@@ -29,6 +31,7 @@ class HomeController extends Controller
        }
        else
        {
+        
         return view("home",compact('data'));
        }
     }
