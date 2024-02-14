@@ -15,8 +15,6 @@ class HomeController extends Controller
     public function index()
     {
         $data=food::all();
-        
-
         return view("home",compact("data"));
     }
 
