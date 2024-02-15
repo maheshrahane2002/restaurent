@@ -23,12 +23,12 @@
 
             <div>
                 <label>Title:</label>
-                <input style="color: blue;" type="text" name="title" placeholder="Write a title" required>
+                <input style="color: blue;" type="text" name="title" placeholder="Write a title.." required>
             </div><br>
 
             <div>
                 <label>Price:</label>
-                <input style="color: blue;" type="number" name="price" placeholder="Price" required>
+                <input style="color: blue;" type="number" name="price" placeholder="Price.." required>
             </div><br>
 
             <div>
@@ -38,7 +38,7 @@
 
             <div>
                 <label>Description:</label>
-                <input style="color: blue;" type="text" name="description" placeholder="Description" required>
+                <input style="color: blue;" type="text" name="description" placeholder="Description.." required>
             </div><br>
 
             <div>
@@ -48,15 +48,18 @@
         </form>
 
 <div><br><br>
+<div style="position:relative;">
 
-<table bgcolor="black">
+<table bgcolor="grey" border="3px">
 
 <tr>
-    <th style="padding:30px">Food Name</th>
-    <th style="padding:30px">Price</th>
-    <th style="padding:30px">Description</th>
-    <th style="padding:30px">Image</th>
-    <th style="padding:30px">Action</th>
+    <th style="padding: 30px">Food Name</th>
+    <th style="padding: 30px">Price</th>
+    <th style="padding: 30px">Description</th>
+    <th style="padding: 30px">Image</th>
+    <th style="padding: 30px">Action1</th>
+    <th style="padding: 30px">Action2</th>
+
 
 
 </tr>
@@ -69,6 +72,8 @@
 <td>{{$data->description}}</td>
 <td><img height="200" width="200" src="/foodimage/{{$data->image}}"</td>
 <td><a href="{{url('/deletemenu',$data->id)}}">Delete</a></td>
+<td><a href="{{url('/updateview',$data->id)}}">Update</a></td>
+
 
 </tr>
 @endforeach

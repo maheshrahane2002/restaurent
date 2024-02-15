@@ -12,7 +12,9 @@
   </head>
   <body>
 
-    @include("admin.navbar");
+  <div class="container-scroller">
+
+    @include("admin.navbar")
     
     @include("admin.adminscript")
 
