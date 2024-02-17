@@ -7,6 +7,8 @@ use App\Models\User;
 
 use App\Models\Reservation;
 
+use App\Models\Foodchef;
+
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Storage;
@@ -134,6 +136,28 @@ public function viewreservation()
 
 }
 
+public function viewchef()
+{
 
+    return view("admin.adminchef");
+
+}
+
+public function uploadchef(Request $request)
+{
+  $data=new foodchef;
+  $image=$request->image;
+  $image = $request->file('image');
+  $imageName = time() . '.' . $image->getClientOriginalExtension();
+
+  $path = $image->storeAs('chefimage', $imageName, 'public');
+
+  $data->name=$request->name;
+  $data->speciality=$request->speciality;
+  $data->save();
+  return redirect()->back()->with('success', 'Chefs uploaded successfully.');
+
+
+}
 
 }

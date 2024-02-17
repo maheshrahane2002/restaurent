@@ -39,6 +39,9 @@ Route::post("/reservation",[AdminController::class,"reservation"]);
 
 Route::get("/viewreservation",[AdminController::class,"viewreservation"]);
 
+Route::get("/viewchef",[AdminController::class,"viewchef"]);
+
+Route::post("/uploadchef",[AdminController::class,"uploadchef"]);
 
 
 Route::view('dashboard', 'dashboard')
