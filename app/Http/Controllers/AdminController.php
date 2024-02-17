@@ -138,8 +138,8 @@ public function viewreservation()
 
 public function viewchef()
 {
-
-    return view("admin.adminchef");
+    $data=foodchef::all();
+    return view("admin.adminchef",compact("data"));
 
 }
 
@@ -160,4 +160,36 @@ public function uploadchef(Request $request)
 
 }
 
+public function updatechef($id)
+{
+ $data=foodchef::find($id);
+ return view("admin.updatechef",compact("data"));
+}
+
+public function updatefoodchef(Request $request,$id)
+{
+ $data=foodchef::find($id);
+ $image=$request->image;
+ $image = $request->file('image');
+ if($image)
+ {
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+
+            $path = $image->storeAs('chefimage', $imageName, 'public');
+ }          
+            $data->name=$request->name;
+            $data->speciality=$request->speciality;
+            $data->save();
+            return redirect()->back()->with('success', 'Updatefoodchef successfully.');
+
+
+}
+
+
+public function deletechef($id)
+{
+    $data=foodchef::find($id);
+    $data->delete();
+    return redirect()->back();
+}
 }

@@ -19,25 +19,56 @@
 <form action="{{url('/uploadchef')}}" method="Post" enctype="multipart/form-data">
  @csrf
 <div>
-<label>Name</label>
+<label>Name:</label>
 <input style="color:blue" type="text" name="name" required="" placeholder="Enter name..">
-</div>
+</div><br>
 
 <div>
-<label>Speciality</label>
+<label>Speciality:</label>
 <input style="color:blue" type="text" name="speciality" required="" placeholder="Enter the speciality..">
-</div>
+</div><br>
 
 <div>
-<label>Image</label>
+<label>Image:</label>
 <input type="file" name="image" required="">
-</div>
+</div><br>
 
 <div>
 <input style="color:blue" type="submit" value="Save">
 </div>
 
 </form>
+<div>
+<table bgcolor="black">
+
+
+<tr>
+
+
+ <th style="padding:30px;">Chef Name</th>
+ <th style="padding:30px;">Speciality</th>
+ <th style="padding:30px;">Image</th>
+ <th style="padding:30px;">Action1</th>
+ <th style="padding:30px;">Action2</th>
+
+
+</tr>
+ @foreach($data as $data)
+<tr align="center">
+ <td>{{$data->name}}</td>
+ <td>{{$data->speciality}}</td>
+ <td><img height="100px" width="100px" src="/chefimage/{{$data->image}}"></td>
+ <td><a href="{{url('/updatechef',$data->id)}}">Update</a></td>
+ <td><a href="{{url('/deletechef',$data->id)}}">Delete</a></td>
+
+
+
+</tr>
+@endforeach
+</table>
+
+
+
 </div>
     @include("admin.adminscript")
 
