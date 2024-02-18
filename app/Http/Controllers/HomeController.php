@@ -16,7 +16,6 @@ use App\Models\Cart;
 
 class HomeController extends Controller
 {
-  public $count;
     public function index()
     {
         $data=food::all();
@@ -26,17 +25,17 @@ class HomeController extends Controller
 
     public function redirects()
     {
-
        $data=food::all();
        $data2=foodchef::all();
        $usertype= Auth::user()->usertype;
-       if($usertype=="1")
+       if($usertype=='1')
        {
         return view("admin.adminhome");
        }
        else
        {
         $user_id=Auth::id();
+        $count = 0;
         $count=Cart::where('user_id',$user_id)->count();
         return view("home",compact('data','data2','count'));
        }
