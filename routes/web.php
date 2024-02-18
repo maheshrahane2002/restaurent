@@ -49,6 +49,9 @@ Route::post("/updatefoodchef/{id}",[AdminController::class,"updatefoodchef"]);
 
 Route::get("/deletechef/{id}",[AdminController::class,"deletechef"]);
 
+Route::post("/addcart/{id}",[HomeController::class,"addcart"]);
+
+
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
