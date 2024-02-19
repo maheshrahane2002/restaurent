@@ -53,6 +53,8 @@ Route::post("/addcart/{id}",[HomeController::class,"addcart"]);
 
 Route::get("/showcart/{id}",[HomeController::class,"showcart"]);
 
+Route::get("/remove/{id}",[HomeController::class,"remove"]);
+
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
