@@ -55,6 +55,8 @@ Route::get("/showcart/{id}",[HomeController::class,"showcart"]);
 
 Route::get("/remove/{id}",[HomeController::class,"remove"]);
 
+Route::get("/orderconfirm",[HomeController::class,"orderconfirm"]);
+
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
