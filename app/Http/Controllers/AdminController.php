@@ -1,6 +1,6 @@
 <?php
-
 namespace App\Http\Controllers;
+
 use App\Models\Food;
 
 use App\Models\User;
@@ -14,6 +14,9 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Storage;
+
+use Illuminate\Support\Facades\Auth;
+
 
 class AdminController extends Controller
 {
@@ -132,9 +135,16 @@ public function reservation(Request $request)
 }
 
 public function viewreservation()
-{
+{   
+    if(Auth::id())
+    {
     $data=reservation::all();
     return view("admin.adminreservation",compact("data"));
+    }
+    else
+    {
+        return redirect('login');
+    }
 
 }
 
@@ -202,4 +212,11 @@ public function orders()
 
 }
 
+public function search(Request $request)
+{
+    $search=$request->search;
+    $data=order::where('name','Like','%'.$search.'%')->orWhere('foodname','Like','%'.$search.'%')->get();
+    return view("admin.orders",compact('data'));
+
+}
 }
