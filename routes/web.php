@@ -57,6 +57,8 @@ Route::get("/remove/{id}",[HomeController::class,"remove"]);
 
 Route::get("/orderconfirm",[HomeController::class,"orderconfirm"]);
 
+Route::get("/orders",[AdminController::class,"orders"]);
+
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

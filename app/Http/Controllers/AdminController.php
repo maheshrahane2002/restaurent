@@ -9,6 +9,8 @@ use App\Models\Reservation;
 
 use App\Models\Foodchef;
 
+use App\Models\Order;
+
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Storage;
@@ -192,4 +194,12 @@ public function deletechef($id)
     $data->delete();
     return redirect()->back();
 }
+
+public function orders()
+{
+    $data=order::all();
+    return view("admin.orders",compact('data'));
+
+}
+
 }
