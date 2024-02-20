@@ -43,14 +43,14 @@
 
             <div>
                 
-                <input style="color: white" type="submit" value="Save">
+                <input style="color: blue" type="submit" value="Save">
             </div>
         </form>
 
 <div><br><br>
 <div style="position:relative;">
 
-<table bgcolor="grey" border="3px">
+<table bgcolor="black" border="3px">
 
 <tr>
     <th style="padding: 30px">Food Name</th>
