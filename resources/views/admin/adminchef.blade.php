@@ -38,8 +38,11 @@
 </div>
 
 </form>
-<div>
-<table bgcolor="black">
+
+<div><br><br>
+<div style="position:relative;">
+
+<table bgcolor="black" border="3px">
 
 
 <tr>
@@ -67,7 +70,7 @@
 @endforeach
 </table>
 
-
+</div>
 
 </div>
     @include("admin.adminscript")

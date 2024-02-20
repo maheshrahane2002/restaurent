@@ -18,7 +18,7 @@
 
 <div style="position:relative; top:70px; right: -150;">
 
-<table bgcolor="grey" border="1px">
+<table bgcolor="black" border="3px">
 
 <tr>
     <th style="padding: 30px;">Name</th>
