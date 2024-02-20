@@ -37,7 +37,8 @@
 
 
 </form>
-<table>
+
+<table bgcolor="black" border="3px">
     <tr align="center">
         <td style="padding:20px">Name</td>
         <td style="padding:20px">Phone</td>
@@ -48,7 +49,7 @@
         <td style="padding:20px">Total Price</td>
     </tr>
     @foreach($data as $data)
-    <tr align="center" style="background-color:grey">
+    <tr align="center">
          <td>{{$data->name}}</td>
          <td>{{$data->phone}}</td>
          <td>{{$data->address}}</td>
