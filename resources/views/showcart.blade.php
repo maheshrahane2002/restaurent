@@ -54,7 +54,7 @@ https://templatemo.com/tm-558-klassy-cafe
                         <a href="index.html" class="logo">
                             <img src="assets/images/klassy-logo.png" align="klassy cafe html template">
                         <a class="menu-trigger">
-                            <span>Menu</span>
+                            <span></span>
                         </a>    
                         </a>
                         <!-- ***** Logo End ***** -->
