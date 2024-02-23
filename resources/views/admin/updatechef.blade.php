@@ -39,7 +39,7 @@
     </div>
 
     <div>
-        <input style="color:blue;" type="submit" value="Update Chef" required="">
+        <input  type="submit" value="Update Chef" class="btn btn-danger">
     </div>
 </form>
 </div>

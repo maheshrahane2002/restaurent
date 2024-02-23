@@ -43,7 +43,7 @@
 
             <div>
                 
-                <input style="color: blue" type="submit" value="Save">
+                <input  type="submit" value="Save" class="btn btn-danger">
             </div>
         </form>
 

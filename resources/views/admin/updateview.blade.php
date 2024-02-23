@@ -47,7 +47,7 @@
                 <input type="file" name="image" required>
             </div>
             <div>
-                <input style="color: white" type="submit" value="Save">
+                <input  type="submit" value="Save" class="btn btn-danger">
             </div>
         </form>
 

@@ -36,7 +36,7 @@
 
 
                         <input type="number" name="quantity" min="1" value="1" style="width:80px;">
-                        <input type="submit" value="addcart">
+                        <input type="submit" value="addcart" >
 
 
                     </div>

@@ -23,7 +23,7 @@
 
 <input type="text" name="search" style="color:blue;">
 
-<input type="submit" value="Search" class="btn btn-success">
+<input type="submit" value="Search" class="btn btn-danger">
 
 
 

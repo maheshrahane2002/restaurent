@@ -16,6 +16,7 @@
 
     @include("admin.navbar")
 
+    <div style="position: relative; top: 60px; right: -150px">
 <form action="{{url('/uploadchef')}}" method="Post" enctype="multipart/form-data">
  @csrf
 <div>
@@ -34,7 +35,7 @@
 </div><br>
 
 <div>
-<input style="color:blue" type="submit" value="Save">
+<input type="submit" value="Save" class="btn btn-danger">
 </div>
 
 </form>
@@ -60,7 +61,7 @@
 <tr align="center">
  <td>{{$data->name}}</td>
  <td>{{$data->speciality}}</td>
- <td><img height="100px" width="100px" src="/chefimage/{{$data->image}}"></td>
+ <td><img height="200px" width="200px" src="/chefimage/{{$data->image}}"></td>
  <td><a href="{{url('/updatechef',$data->id)}}">Update</a></td>
  <td><a href="{{url('/deletechef',$data->id)}}">Delete</a></td>
 
